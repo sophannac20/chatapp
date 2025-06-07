@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navbar, Container, Dropdown } from 'react-bootstrap';
-// import Avatar from 'react-avatar';
+import Avatar from 'react-avatar';
 
 const Header = ({ user, typingUsers, isloggedin = false }) => {
 
@@ -9,16 +9,6 @@ const Header = ({ user, typingUsers, isloggedin = false }) => {
         localStorage.removeItem("token");
         window.location.href = '/signin';
     };
-
-    // function formatTypingMessage(users) {
-    //     const count = users.length;
-    //     let exists = users.includes(user?.username)
-    //     if (count === 0) return '';
-    //     if (count === 1) return `${users[0] === user.username ? '' : `${users[0]} is typing...`}`;
-    //     // if (count === 2) return `${users[0] === user.username ? `${users[1]} is typing...` : `${users[0]} is typing...`}`;
-    //     if (count >= 2)
-    //         return `${users[0]}, ${users[1]}, and ${count - 1} others are typing...`;
-    // }
 
     const formatTypingMessage = (typingUsers) => {
         const count = typingUsers.length;
@@ -71,7 +61,7 @@ const Header = ({ user, typingUsers, isloggedin = false }) => {
                     <div className="d-flex align-items-center">
                         <Dropdown align="end">
                             <Dropdown.Toggle variant="dark" id="user-dropdown" className="rounded p-2">
-                                {/* <Avatar
+                                <Avatar
                                     name={user?.username}
                                     size="32"
                                     maxInitials='2'
@@ -79,7 +69,7 @@ const Header = ({ user, typingUsers, isloggedin = false }) => {
                                     color="#007bff"     // Background color
                                     fgColor="#fff"      // Text color
                                     className="me-2"
-                                /> */}
+                                />
                                 <span className="fw-bold">{user?.username}</span>
                             </Dropdown.Toggle>
 
