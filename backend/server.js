@@ -10,9 +10,7 @@ const BASE_CLIENT_URL = process.env.CLIENT_URL
 const app = express();
 app.use(express.static(path.join(__dirname, '../frontend/build')));
 
-app.get('/', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../frontend/build', 'index.html'));
-});
+
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
@@ -29,6 +27,17 @@ app.use(require('morgan')('dev'));
 // Routes
 app.use('/api/auth', authRoutes);
 
+app.get('/', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../frontend/build', 'index.html'));
+});
+
+app.get('/signin', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../frontend/build', 'index.html'));
+});
+
+app.get('/signup', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../frontend/build', 'index.html'));
+});
 
 // Socket.IO Setup
 const { setupSocket } = require('./socket');
