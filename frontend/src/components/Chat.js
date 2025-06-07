@@ -28,6 +28,7 @@ const Chat = () => {
       return "Unknown";
     }
   };
+  
   useEffect(() => {
     scrollToBottom();
   }, [messages])

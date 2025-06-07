@@ -38,7 +38,7 @@ const Login = () => {
                     <Form.Label>Email or Username</Form.Label>
                     <Form.Control
                       type="text"
-                      placeholder="email or username"
+                      placeholder="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required
