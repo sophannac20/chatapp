@@ -40,7 +40,7 @@ const Login = () => {
                       type="text"
                       placeholder="email"
                       value={email}
-                      onChange={(e) => setEmail(e.target.value)}
+                      onChange={(e) => setEmail(e.target.value.toLowerCase)}
                       required
                     />
                   </Form.Group>
