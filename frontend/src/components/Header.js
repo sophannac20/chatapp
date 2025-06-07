@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navbar, Container, Dropdown } from 'react-bootstrap';
-import Avatar from 'react-avatar';
+// import Avatar from 'react-avatar';
 
 const Header = ({ user, typingUsers, isloggedin = false }) => {
 
@@ -71,7 +71,7 @@ const Header = ({ user, typingUsers, isloggedin = false }) => {
                     <div className="d-flex align-items-center">
                         <Dropdown align="end">
                             <Dropdown.Toggle variant="dark" id="user-dropdown" className="rounded p-2">
-                                <Avatar
+                                {/* <Avatar
                                     name={user?.username}
                                     size="32"
                                     maxInitials='2'
@@ -79,7 +79,7 @@ const Header = ({ user, typingUsers, isloggedin = false }) => {
                                     color="#007bff"     // Background color
                                     fgColor="#fff"      // Text color
                                     className="me-2"
-                                />
+                                /> */}
                                 <span className="fw-bold">{user?.username}</span>
                             </Dropdown.Toggle>
 
