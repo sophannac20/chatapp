@@ -5,7 +5,7 @@ const ChatBlock = ({ messages, user, messagesEndRef }) => {
   return (
     <>
       <div style={{
-        height: '80vh',
+        height: '70vh',
         maxHeight: '80vh',
         border: '1px solid #ccc',
         overflowY: 'auto',

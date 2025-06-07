@@ -19,15 +19,19 @@ const Chat = () => {
   const socket = useRef();
 
   const fetchUsername = async (userId) => {
-  try {
-    const res = await fetch(`${BASE_SERVER_URL}/api/auth/${userId}`);
-    const data = await res.json();
-    return data.username;
-  } catch (err) {
-    console.error("Error fetching username:", err);
-    return "Unknown";
-  }
-};
+    try {
+      const res = await fetch(`${BASE_SERVER_URL}/api/auth/${userId}`);
+      const data = await res.json();
+      return data.username;
+    } catch (err) {
+      console.error("Error fetching username:", err);
+      return "Unknown";
+    }
+  };
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages])
+
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -36,8 +40,6 @@ const Chat = () => {
   useEffect(() => {
 
     if (!token) return;
-
-    scrollToBottom();
 
     // Fetch user info
     fetch(`${BASE_SERVER_URL}/api/auth/me`, {
@@ -59,8 +61,10 @@ const Chat = () => {
       const username = await fetchUsername(userId)
       setMessages(prev => [
         ...prev,
-        { type: "notify", 
-          text: `${username} has joined the chat`, time: new Date().toLocaleTimeString() }
+        {
+          type: "notify",
+          text: `${username} has joined the chat`, time: new Date().toLocaleTimeString()
+        }
       ]);
     });
 
